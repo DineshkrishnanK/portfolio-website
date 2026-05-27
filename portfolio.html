@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dinesh K | Data Analyst Portfolio</title>
+
+<!-- GOOGLE FONT -->
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Outfit',sans-serif;
+}
+
+body{
+    background:#060816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND BLUR */
+
+.bg-blur1{
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#00bfff;
+    filter:blur(180px);
+    opacity:0.15;
+    top:-200px;
+    left:-100px;
+    z-index:-1;
+}
+
+.bg-blur2{
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#7c3aed;
+    filter:blur(180px);
+    opacity:0.15;
+    bottom:-200px;
+    right:-100px;
+    z-index:-1;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(#00bfff,#7c3aed);
+    border-radius:20px;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    z-index:1000;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,0.04);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+    font-size:32px;
+    font-weight:700;
+    background:linear-gradient(90deg,#00bfff,#7c3aed);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    font-weight:500;
+}
+
+nav ul li a:hover{
+    color:#00bfff;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:140px 8%;
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.hero-text h3{
+    color:#00bfff;
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.hero-text h1{
+    font-size:80px;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero-text h1 span{
+    background:linear-gradient(90deg,#00bfff,#7c3aed);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-text p{
+    color:#cbd5e1;
+    line-height:1.9;
+    max-width:650px;
+    margin-bottom:35px;
+    font-size:17px;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 34px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.4s;
+}
+
+.primary-btn{
+    background:linear-gradient(90deg,#00bfff,#7c3aed);
+    color:white;
+    box-shadow:0 0 30px rgba(0,191,255,0.4);
+}
+
+.primary-btn:hover{
+    transform:translateY(-5px);
+}
+
+.secondary-btn{
+    border:2px solid #00bfff;
+    color:#00bfff;
+}
+
+.secondary-btn:hover{
+    background:#00bfff;
+    color:white;
+}
+
+/* SOCIALS */
+
+.socials{
+    margin-top:35px;
+    display:flex;
+    gap:18px;
+}
+
+.socials a{
+    width:52px;
+    height:52px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    color:white;
+    text-decoration:none;
+    transition:0.4s;
+    font-size:20px;
+}
+
+.socials a:hover{
+    background:linear-gradient(90deg,#00bfff,#7c3aed);
+    transform:translateY(-8px);
+}
+
+/* HERO IMAGE */
+
+.hero-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.hero-image img{
+    width:390px;
+    border-radius:35px;
+    border:4px solid rgba(255,255,255,0.08);
+    box-shadow:
+    0 0 35px rgba(0,191,255,0.35),
+    0 0 70px rgba(124,58,237,0.25);
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-18px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:110px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-size:50px;
+    margin-bottom:12px;
+    background:linear-gradient(90deg,#00bfff,#7c3aed);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.section-title p{
+    color:#94a3b8;
+}
+
+/* GLASS CARD */
+
+.glass-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border-radius:28px;
+    transition:0.4s;
+}
+
+.glass-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 35px rgba(0,191,255,0.15);
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.about-card{
+    padding:35px;
+}
+
+.about-card h3{
+    color:#00bfff;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.about-card p{
+    color:#cbd5e1;
+    line-height:1.9;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-top:60px;
+}
+
+.stat-box{
+    padding:35px;
+    text-align:center;
+}
+
+.stat-box h2{
+    font-size:45px;
+    margin-bottom:10px;
+    color:#00bfff;
+}
+
+.stat-box p{
+    color:#cbd5e1;
+}
+
+/* SKILLS */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.skill-card{
+    padding:35px;
+    text-align:center;
+}
+
+.skill-card i{
+    font-size:45px;
+    margin-bottom:20px;
+    background:linear-gradient(90deg,#00bfff,#7c3aed);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.skill-card h3{
+    margin-bottom:10px;
+}
+
+/* PROJECTS */
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    overflow:hidden;
+}
+
+.project-content{
+    padding:35px;
+}
+
+.project-content h3{
+    color:#00bfff;
+    margin-bottom:15px;
+    font-size:26px;
+}
+
+.project-content p{
+    color:#cbd5e1;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.tags span{
+    background:rgba(255,255,255,0.06);
+    padding:8px 16px;
+    border-radius:30px;
+    font-size:13px;
+}
+
+/* CONTACT */
+
+.contact-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+}
+
+.contact-box{
+    padding:40px;
+}
+
+.contact-box h3{
+    color:#00bfff;
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+.contact-box p{
+    color:#cbd5e1;
+    margin-bottom:18px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:16px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    background:rgba(255,255,255,0.05);
+    color:white;
+    margin-bottom:20px;
+}
+
+.contact-form button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(90deg,#00bfff,#7c3aed);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.contact-form button:hover{
+    transform:scale(1.02);
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:35px;
+    color:#94a3b8;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column-reverse;
+    text-align:center;
+}
+
+.hero-text h1{
+    font-size:55px;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+.socials{
+    justify-content:center;
+}
+
+nav ul{
+    display:none;
+}
+
+.hero-image img{
+    width:290px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg-blur1"></div>
+<div class="bg-blur2"></div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">Dinesh.</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO SECTION -->
+
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<h3>Hello, I'm</h3>
+
+<h1>
+Dinesh K <br>
+<span id="typing"></span>
+</h1>
+
+<p>
+Motivated Information Technology graduate specializing in Python,
+SQL, Power BI, Excel, and modern dashboard development.
+Passionate about transforming raw data into meaningful insights
+and building visually engaging digital experiences.
+</p>
+
+<div class="hero-buttons">
+
+<!-- DOWNLOAD RESUME BUTTON -->
+
+<a href="dinesh_resume.pdf" download class="btn primary-btn">
+Download Resume
+</a>
+
+<a href="#contact" class="btn secondary-btn">
+Contact Me
+</a>
+
+</div>
+
+<!-- SOCIALS -->
+
+<div class="socials">
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+</div>
+
+</div>
+
+<!-- IMAGE -->
+
+<div class="hero-image">
+<img src="dinesh.JPEG" alt="Dinesh">
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="section-title">
+<h2>About Me</h2>
+<p>Professional profile and career overview</p>
+</div>
+
+<div class="about-grid">
+
+<div class="about-card glass-card">
+<h3>Who I Am</h3>
+<p>
+A passionate Data Analyst and Python Developer focused on creating interactive dashboards,
+data-driven applications, and modern web experiences with clean UI/UX.
+</p>
+</div>
+
+<div class="about-card glass-card">
+<h3>My Strengths</h3>
+<p>
+Strong analytical thinking, problem solving, dashboard development,
+data visualization, teamwork, and software development skills.
+</p>
+</div>
+
+<div class="about-card glass-card">
+<h3>Career Vision</h3>
+<p>
+Seeking opportunities where I can contribute innovative solutions,
+enhance business insights, and grow professionally in the tech industry.
+</p>
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat-box glass-card">
+<h2>2+</h2>
+<p>Projects Completed</p>
+</div>
+
+<div class="stat-box glass-card">
+<h2>10+</h2>
+<p>Technical Skills</p>
+</div>
+
+<div class="stat-box glass-card">
+<h2>3+</h2>
+<p>Certifications</p>
+</div>
+
+<div class="stat-box glass-card">
+<h2>100%</h2>
+<p>Passion & Dedication</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="section-title">
+<h2>Skills</h2>
+<p>Technologies and tools I work with</p>
+</div>
+
+<div class="skills-grid">
+
+<div class="skill-card glass-card">
+<i class="fab fa-python"></i>
+<h3>Python</h3>
+<p>Automation & Data Handling</p>
+</div>
+
+<div class="skill-card glass-card">
+<i class="fas fa-database"></i>
+<h3>SQL</h3>
+<p>Database Queries</p>
+</div>
+
+<div class="skill-card glass-card">
+<i class="fas fa-chart-line"></i>
+<h3>Power BI</h3>
+<p>Interactive Dashboards</p>
+</div>
+
+<div class="skill-card glass-card">
+<i class="fas fa-file-excel"></i>
+<h3>Excel</h3>
+<p>Analytics & Reporting</p>
+</div>
+
+<div class="skill-card glass-card">
+<i class="fab fa-html5"></i>
+<h3>HTML/CSS</h3>
+<p>Responsive Design</p>
+</div>
+
+<div class="skill-card glass-card">
+<i class="fab fa-js"></i>
+<h3>JavaScript</h3>
+<p>Interactive User Interfaces</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="section-title">
+<h2>Projects</h2>
+<p>Featured works and applications</p>
+</div>
+
+<div class="project-grid">
+
+<div class="project-card glass-card">
+
+<div class="project-content">
+
+<h3>Airline Dashboard</h3>
+
+<p>
+Designed an interactive Power BI dashboard to analyze airline performance,
+passenger trends, delays, and revenue insights using DAX and advanced filtering.
+</p>
+
+<div class="tags">
+<span>Power BI</span>
+<span>DAX</span>
+<span>Dashboard</span>
+<span>Analytics</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="project-card glass-card">
+
+<div class="project-content">
+
+<h3>Music Player Application</h3>
+
+<p>
+Built a desktop music player application using Python and Tkinter
+with playlist management, playback controls, and modern GUI design.
+</p>
+
+<div class="tags">
+<span>Python</span>
+<span>Tkinter</span>
+<span>GUI</span>
+<span>Desktop App</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="section-title">
+<h2>Contact Me</h2>
+<p>Let's connect and work together</p>
+</div>
+
+<div class="contact-container">
+
+<div class="contact-box glass-card">
+
+<h3>Contact Information</h3>
+
+<p><i class="fas fa-envelope"></i> dineshkrishnan002@gmail.com</p>
+<p><i class="fas fa-phone"></i> 7010422982</p>
+<p><i class="fas fa-location-dot"></i> Madurai, India</p>
+<p><i class="fab fa-linkedin"></i> linkedin.com/in/dinesh-k</p>
+
+</div>
+
+<div class="contact-box glass-card">
+
+<form class="contact-form">
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea rows="5" placeholder="Your Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+© 2026 Dinesh K | Premium Professional Portfolio
+</footer>
+
+<!-- TYPING EFFECT -->
+
+<script>
+
+const texts = [
+"Data Analyst",
+"Python Developer",
+"Power BI Enthusiast",
+"Web Developer"
+];
+
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+
+(function type(){
+
+if(count === texts.length){
+count = 0;
+}
+
+currentText = texts[count];
+letter = currentText.slice(0, ++index);
+
+document.getElementById("typing").textContent = letter;
+
+if(letter.length === currentText.length){
+count++;
+index = 0;
+setTimeout(type,1500);
+}else{
+setTimeout(type,100);
+}
+
+})();
+
+</script>
+
+</body>
+</html>
